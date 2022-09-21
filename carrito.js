@@ -29,6 +29,7 @@ let precio = form.children[5].value;
 
 form.addEventListener('submit', agregarProd)
 btnMostrarProd.addEventListener('click', mostrarTodosLosProd)
+mostrarCatalogo.addEventListener('click', cargarCatalogo)
 
 
 inputBebida.focus()
@@ -102,20 +103,26 @@ function mostrarTodosLosProd (e){
 }
 
 
-const lista = document.querySelector("#listado")
-
-fetch("/productos.json")
+const cargarCatalogo = () =>{
+    fetch("/productos.json")
     .then((res) => res.json())
-    .then((productos) =>{
-        productos.forEach ((producto) => {
-            const li =document.createElement("li")
-            li.innerHTML = `
-                <h4>${producto.nombre}</h4>
-                <p>${producto.precio}</p>
-                <hr/>
-            `
-            lista.append(li)
-         });
+        console.log(res);
+
+
+
+}
+
+
+    // .then((productos) =>{
+    //     productos.forEach ((producto) => {
+    //         const li =document.createElement("li")
+    //         li.innerHTML = `
+    //             <h4>${producto.nombre}</h4>
+    //             <p>${producto.precio}</p>
+    //             <hr/>
+    //         `
+    //         lista.append(li)
+    //      });
     
     
-        })
+    //     })
