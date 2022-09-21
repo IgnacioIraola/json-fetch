@@ -14,7 +14,7 @@ let form = document.getElementById('form')
 let inputBebida = document.getElementById('bebida')
 let inputPrecio = document.getElementById('precio') 
 
-let mostrarCatalogo = document.getElementById('btnCatalogo')
+let btnCatalogo = document.getElementById('btnCatalogo')
 let mostrarProdSolos = document.getElementById('mostrarProdSolos')
 let mostrarTodosProd = document.getElementById('mostrarTodosProd')
 let btnMostrarProd = document.getElementById('btnMostrar')
@@ -29,8 +29,33 @@ let precio = form.children[5].value;
 
 form.addEventListener('submit', agregarProd)
 btnMostrarProd.addEventListener('click', mostrarTodosLosProd)
-mostrarCatalogo.addEventListener('click', cargarCatalogo)
+btnCatalogo.addEventListener('click', cargarCatalogo)
 
+
+// const cargarCatalogo = () =>{
+//     fetch("/productos.json")
+//     .then((res) => res.json())
+//         console.log(res);
+
+
+
+// }
+
+function cargarCatalogo() {
+    fetch("productos.json")
+        .then(function(res){
+            return res.json();
+        })
+        .then (function(catalogo){
+            let html = '';
+            catalogo.forEach(function(producto){
+                html += `
+                    <li>${producto.Bebida} ${producto.Precio}</li>
+                  `
+            })
+            document.getElementById("mostarProdCatalogo").innerHTML = html;
+        })
+}
 
 inputBebida.focus()
 
@@ -103,14 +128,7 @@ function mostrarTodosLosProd (e){
 }
 
 
-const cargarCatalogo = () =>{
-    fetch("/productos.json")
-    .then((res) => res.json())
-        console.log(res);
 
-
-
-}
 
 
     // .then((productos) =>{

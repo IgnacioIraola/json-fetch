@@ -1,5 +1,5 @@
 [
-{"Bebida":"Fernet", "Precio":1700, "id":1},   
+{"Bebida":"Fernet", "Precio": 1700, "id":1},   
 {"Bebida":"Cerveza", "Precio":150, "id":2},
 {"Bebida":"Vino", "Precio":700, "id":3 },
 {"Bebida":"Aperol", "Precio":600, "id":4 },
