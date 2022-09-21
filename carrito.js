@@ -14,6 +14,7 @@ let form = document.getElementById('form')
 let inputBebida = document.getElementById('bebida')
 let inputPrecio = document.getElementById('precio') 
 
+let mostrarCatalogo = document.getElementById('btnCatalogo')
 let mostrarProdSolos = document.getElementById('mostrarProdSolos')
 let mostrarTodosProd = document.getElementById('mostrarTodosProd')
 let btnMostrarProd = document.getElementById('btnMostrar')
@@ -105,15 +106,16 @@ const lista = document.querySelector("#listado")
 
 fetch("/productos.json")
     .then((res) => res.json())
-    .then((data) =>{
-        const li = document.createElement("li")
-        li.innerHTML=`
-            <h4>${producto.nombre}</h4>
-            <p>${producto.precio}</p> 
+    .then((productos) =>{
+        productos.forEach ((producto) => {
+            const li =document.createElement("li")
+            li.innerHTML = `
+                <h4>${producto.nombre}</h4>
+                <p>${producto.precio}</p>
+                <hr/>
             `
-
-           lista.append(li) 
-    }
+            lista.append(li)
+         });
     
     
-    )
+        })
