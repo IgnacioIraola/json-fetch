@@ -1,0 +1,7 @@
+[
+{"nombre":"Fernet", "Precio":1700, "id":1},   
+{"nombre":"Cerveza", "Precio":150, "id":2},
+{"nombre":"Vino", "Precio":700, "id":3 },
+{"nombre":"Aperol", "Precio":600, "id":4 },
+{"nombre":"Cynar", "Precio":750, "id":5 }
+]
