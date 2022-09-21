@@ -99,3 +99,21 @@ function mostrarTodosLosProd (e){
         <p><strong>Precio: </strong>${datos.precio}</p> `
     }
 }
+
+
+const lista = document.querySelector("#listado")
+
+fetch("/productos.json")
+    .then((res) => res.json())
+    .then((data) =>{
+        const li = document.createElement("li")
+        li.innerHTML=`
+            <h4>${producto.nombre}</h4>
+            <p>${producto.precio}</p> 
+            `
+
+           lista.append(li) 
+    }
+    
+    
+    )
